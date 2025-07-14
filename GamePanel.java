@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
         clearConsole();
-
+        System.out.println("START");
         printScore("");
     }
 
