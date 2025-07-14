@@ -46,7 +46,8 @@ public class GamePanel extends JPanel implements Runnable
         ball = new Ball(this, keyH);
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
-        clearConsole();
+       // clearConsole();
+        printScore("");
     }
 
     public GamePanel(Menu menu)
@@ -64,6 +65,8 @@ public class GamePanel extends JPanel implements Runnable
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
         clearConsole();
+        System.out.println("START");
+        printScore("");
     }
 
     public void startGameThread()
@@ -172,7 +175,7 @@ public class GamePanel extends JPanel implements Runnable
             scoreRight = 0;
             clearConsole();
             System.out.println("NEW GAME");
-            printScore();
+            printScore("");
             menu.setNewGameStarter(false);
         }
     }
@@ -207,19 +210,20 @@ public class GamePanel extends JPanel implements Runnable
         {
             scoreRight ++;
         }
-        printScore();
+        printScore("DEF");
     }
 
-    public void printScore()
-    {
-        clearConsole();
-       // System.out.println("$========================================$");
+    public void printScore(String type)
+    {   
+        if(type == "DEF"){
+            clearConsole();
+        }
+        // System.out.println("$========================================$");
         System.out.println("CURRENT SCORE: ");
         System.out.println("LEFT: " + scoreLeft + "       RIGHT: " + scoreRight);
         //System.out.println("$========================================$");
 
     }
-
     public void clearConsole()
     {
         System.out.println("");
