@@ -32,7 +32,7 @@ public class Ball
         int rightPlayerY = gp.rp.rightPlayerY; 
         int rightSizeX = gp.rp.rightSizeX; 
         int rightSizeY = gp.rp.rightSizeY;
-
+        /*$*================================================*$*/
         //ball bounce
         if(ballY <= 0 || ballY + ballSize >= gp.screenHeight) //top-bottom
         {
@@ -42,11 +42,15 @@ public class Ball
         {
             ballSpeedX *= -1;
             gp.menu.setGameState(false);
+            gp.addScore("RIGHT");
+            gp.menu.setReseter(true);
         }
         else if(ballX + ballSize >= gp.screenWidth) //right
         {
             ballSpeedX *= -1;
             gp.menu.setGameState(false);
+            gp.addScore("LEFT");
+            gp.menu.setReseter(true);
         }
 
         /*$*================================================*$*/
@@ -162,6 +166,7 @@ public class Ball
         }
 
     }
+
     public void ballMove(boolean state)
     {
         if(state == true){
@@ -171,6 +176,7 @@ public class Ball
         }
         else{}
     }
+
     public void reset()
     {
         ballSpeedX = ballStartingSpeedX;

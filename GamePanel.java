@@ -17,13 +17,16 @@ public class GamePanel extends JPanel implements Runnable
 
     public boolean gameActive = false;
 
+    public int scoreLeft = 0;
+    public int scoreRight = 0;
+
     //fps
     int FPS = 60;
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
-    
+
     public boolean SP;
-    
+
     public Menu menu;
     public Ball ball;
     public LeftPanel lp;
@@ -43,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable
         ball = new Ball(this, keyH);
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
-
+        clearConsole();
     }
 
     public GamePanel(Menu menu)
@@ -60,7 +63,7 @@ public class GamePanel extends JPanel implements Runnable
         ball = new Ball(this, keyH);
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
-
+        clearConsole();
     }
 
     public void startGameThread()
@@ -115,7 +118,10 @@ public class GamePanel extends JPanel implements Runnable
         rp.move();
         ball.ball();
         ball.ballMove(menu.gameActive);
+
+        pause();
         reset();
+        startANewGame();
         /*
         if(menu.gameActive == true)
         {
@@ -127,7 +133,7 @@ public class GamePanel extends JPanel implements Runnable
         gameActive = false;
         System.out.println("Game State: false");
         }*/
-        pause();
+
     }
 
     public void paintComponent(Graphics g)
@@ -158,6 +164,19 @@ public class GamePanel extends JPanel implements Runnable
         }
     }
 
+    public void startANewGame()
+    {
+        if(menu.newGameStarter == true){
+            menu.setReseter(true);
+            scoreLeft = 0;
+            scoreRight = 0;
+            clearConsole();
+            System.out.println("NEW GAME");
+            printScore();
+            menu.setNewGameStarter(false);
+        }
+    }
+
     public void pause()
     {
         if(keyH.spacePressed == true && menu.gameActive == true)
@@ -171,9 +190,103 @@ public class GamePanel extends JPanel implements Runnable
             keyH.spacePressed = false;
         }
     }
+
     public boolean getSP()
     {
         return SP;
     }
 
+    public void addScore(String position)
+    {
+        reset();
+        if(position == "LEFT")
+        {
+            scoreLeft ++;
+        }
+        if(position == "RIGHT")
+        {
+            scoreRight ++;
+        }
+        printScore();
+    }
+
+    public void printScore()
+    {
+        clearConsole();
+       // System.out.println("$========================================$");
+        System.out.println("CURRENT SCORE: ");
+        System.out.println("LEFT: " + scoreLeft + "       RIGHT: " + scoreRight);
+        //System.out.println("$========================================$");
+
+    }
+
+    public void clearConsole()
+    {
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+    }
 }

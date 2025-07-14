@@ -17,7 +17,7 @@ public class RightPanel
     int rightSizeX = 5;
     int rightSizeY = 64;
 
-    int playerSpeed = 8;
+    int playerSpeed = 6;
     int botSpeed = 3;
 
     GamePanel gp;

@@ -10,6 +10,7 @@ public class Menu{
     public JMenu fileMenu;
     public boolean gameActive = false;
     public boolean reseter = false;
+    public boolean newGameStarter = false;
     public Menu(){
         menuBar = new JMenuBar();
         /*$*================================================*$*/
@@ -22,7 +23,7 @@ public class Menu{
                 public void actionPerformed(ActionEvent e) {
                     // Handle "New" action
                     gameActive = !gameActive;
-                    System.out.println("Game State: " + gameActive);
+                    //System.out.println("Game State: " + gameActive);
                 }
 
             });
@@ -39,10 +40,23 @@ public class Menu{
 
             });
         /*$*================================================*$*/
+        JButton buttonNewGame = new JButton("NewGame");
+        buttonNewGame.setFocusable(false);
+        buttonNewGame.addActionListener(new ActionListener()
+            {
+                // @Override
+                public void actionPerformed(ActionEvent e) {
+                  newGameStarter = true;
+                }
+
+            });
+        /*$*================================================*$*/
         fileMenu = new JMenu("Menu");
         //menuBar.add(fileMenu);
         menuBar.add(buttonPauseResume);
-        menuBar.add(buttonReset);
+
+        menuBar.add(buttonNewGame);
+                menuBar.add(buttonReset);
 
     }
 
@@ -54,5 +68,9 @@ public class Menu{
     public void setReseter(boolean state)
     {
         reseter = state;
-    }    
+    }   
+    public void setNewGameStarter(boolean state)
+    {
+        newGameStarter = state;
+    } 
 }
