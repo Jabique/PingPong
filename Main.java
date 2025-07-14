@@ -6,24 +6,6 @@ public class Main
     public boolean SP;
     public static void main(String[] args)
     {
-        Menu menu = new Menu();
-
-        JFrame window = new JFrame();
-        window.setJMenuBar(menu.menuBar);//
-
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
-        window.setTitle("52");
-
-        GamePanel gamePanel = new GamePanel(menu);
-        window.add(gamePanel);
-
-        window.pack();
-
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
-
-        gamePanel.startGameThread();
 
         ///======================================================
     }
@@ -49,7 +31,8 @@ public class Main
 
         gamePanel.startGameThread();
     }
-    public Main(boolean SP/*, String type_II, String name_I, String name_II*/)
+
+    public Main(boolean singlePlayer/*, String type_II, String name_I, String name_II*/)
     {
         Menu menu = new Menu();
 
@@ -59,7 +42,7 @@ public class Main
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setTitle("52");
-        this.SP = SP;
+        this.SP = singlePlayer;
 
         GamePanel gamePanel = new GamePanel(menu, SP);
         window.add(gamePanel);

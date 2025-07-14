@@ -63,7 +63,7 @@ public class Ball
         && ballX >= leftPlayerX 
 
         && ballY <= leftPlayerY + 16 
-        && ballY >= leftPlayerY)
+        && ballY + ballSize >= leftPlayerY)
 
         {
             ballSpeedX = -4;

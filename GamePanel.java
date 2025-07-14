@@ -46,7 +46,9 @@ public class GamePanel extends JPanel implements Runnable
         ball = new Ball(this, keyH);
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
-       // clearConsole();
+        clearConsole();
+        System.out.println("START");
+        System.out.println("SINGLE PLAYER");
         printScore("");
     }
 
@@ -65,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable
         lp = new LeftPanel(this, keyH);
         rp = new RightPanel(this, keyH);
         clearConsole();
-        System.out.println("START");
+
         printScore("");
     }
 
@@ -224,6 +226,7 @@ public class GamePanel extends JPanel implements Runnable
         //System.out.println("$========================================$");
 
     }
+
     public void clearConsole()
     {
         System.out.println("");
